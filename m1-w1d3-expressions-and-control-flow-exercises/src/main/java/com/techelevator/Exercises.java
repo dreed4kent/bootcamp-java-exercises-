@@ -25,7 +25,7 @@ public class Exercises {
 	 monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
-		if (aSmile && bSmile == false) || (aSmile && bSmile == true) {
+		if ((aSmile == false && bSmile == false) || (aSmile && bSmile == true)) {
 		return true;
 		}
 		return false;
@@ -38,8 +38,13 @@ public class Exercises {
 	 sumDouble(2, 2) → 8
 	 */
 	public int sumDouble(int a, int b) {
-		return 0;
-	}
+		if (a != b);
+		return (a + b); {
+			}
+		if (a == b);
+		return ((a + b) * 2;)
+		}
+	
 
 	/*
 	 4. Given an int n, return the absolute difference between n and 21, except return double the absolute 
@@ -70,7 +75,9 @@ public class Exercises {
 	 parrotTrouble(false, 6) → false
 	 */
 	public boolean parrotTrouble(boolean talking, int hour) {
-		return false;
+		if ((hour > 0 && (hour < 7 || hour > 20)) == true); {
+		return true;
+		}
 	}
 
 	/*
@@ -80,6 +87,9 @@ public class Exercises {
 	 makes10(1, 9) → true
 	 */
 	public boolean makes10(int a, int b) {
+		if (((a == 10) || (b == 10)) || (a + b == 10)){
+		return true;
+		}
 		return false;
 	}
 
@@ -91,7 +101,9 @@ public class Exercises {
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
-		return false;
+		if (a ^ b == false) {
+		return true;
+		}
 	}
 
 	/*
@@ -102,7 +114,9 @@ public class Exercises {
 	 or35(8) → false
 	 */
 	public boolean or35(int n) {
+		if ((n == 3) ||  (n == 5)) {
 		return false;
+		}
 	}
 
 	/*
