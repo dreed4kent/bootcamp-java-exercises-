@@ -24,9 +24,12 @@ public class Exercises {
 	public List<String> array2List(String[] stringArray) {
 		List<String> stringList = new ArrayList<String>();
 		
-		for (String str : stringArray) {
-			stringList.add(str);
+		for (int i = 0; i < stringArray.length; i++) {
+
+			stringList.add(stringArray[i]);
+			
 		}
+//		System.out.println(stringList);
 		return stringList;
 	}
 	
@@ -37,7 +40,11 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] list2Array = new String[stringList.size()];
+		
+		list2Array = stringList.toArray(list2Array);
+		
+		return list2Array;
 	}
 	
 	/*
@@ -48,7 +55,19 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> stringList1 = new ArrayList<String>();
+		
+		for (int i = 0; i < stringArray.length; i++) {
+			
+			if (stringArray.length == 4) {
+				return null;
+			}
+			
+			stringList1.add(stringArray[i]);
+		}
+		
+//		System.out.println(stringList);
+		return stringList1;
 	}
 
 
@@ -63,11 +82,12 @@ public class Exercises {
 	public List<String> reverseList(List<String> stringList) {
 		List<String> no4Letters = new ArrayList<String>();
 		
-		for (String word : stringArray) {
+		for (String word : no4Letters) {
 			if (word.length() != 4) {
 				no4Letters.add(word);
 			}
 		}
+		System.out.println(no4Letters);
 		return no4Letters;
 	}
 
@@ -81,7 +101,7 @@ public class Exercises {
 		List<String> divideThem = new ArrayList<String>();
 		
 		for (String s : divideThem) {
-			divideThem.add(s);
+			return divideThem;
 		}
 		return divideThem;
 	}
@@ -140,6 +160,12 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
+		List<String> distinctValues = new ArrayList<String>();
+		
+		for (int i = 0; i < stringList.length; i++) {
+			ArrayList.add()
+		}
+		
 		return null;
 	}
 
