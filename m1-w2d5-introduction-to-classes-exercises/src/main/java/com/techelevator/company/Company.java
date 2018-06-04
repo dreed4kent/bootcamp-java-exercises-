@@ -1,11 +1,28 @@
 package com.techelevator.company;
 
 public class Company {
-	//must write the private ones...
+
 	private String name;
 	private int numberOfEmployees;
 	private double revenue;
 	private double expenses;
+
+	public String getCompanySize() {
+		// small <= 50,  medium  51 - 250], large > 250
+		if (this.numberOfEmployees <= 50) {
+			return "small";
+		}
+		if (this.numberOfEmployees <= 250) {
+			return "medium";
+		}
+		return "large";
+		
+	}
+	public double getProfit() {
+		// revenue - expenses
+		return this.revenue - this.expenses;
+	}
+	
 	
 	public String getName() {
 		return this.name;
@@ -32,20 +49,6 @@ public class Company {
 		this.expenses = expenses;
 	}
 	
-	public String getCompanySize() {
-		//small <=50, medium 51 - 250], large > 250
-		if (this.numberOfEmployees <= 50) {
-			return "small";
-		}
-		if (this.numberOfEmployees <= 250) {
-			return "medium";
-		}
-		return "large";
-	}
-	public double getProfit() {
-		//revenue - expenses
-		return this.revenue - this.expenses;
-	}
-
+	
 	
 }
