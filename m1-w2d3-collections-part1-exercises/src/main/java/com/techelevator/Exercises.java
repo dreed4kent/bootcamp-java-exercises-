@@ -114,7 +114,13 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		int largestNumber = 0;
+		for (int i : integerList) {			// for each loop
+			if (i >= largestNumber) {
+				largestNumber = i;
+			}
+		}
+		return largestNumber;
 	}
 	
 	/*
@@ -124,7 +130,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> oddIntegers = new ArrayList<Integer>();
+		for (int i : integerArray) {
+			if (i%2 == 1) {
+				oddIntegers.add(i);
+			}
+		}
+		return oddIntegers;
 	}
 	
 	/* 
