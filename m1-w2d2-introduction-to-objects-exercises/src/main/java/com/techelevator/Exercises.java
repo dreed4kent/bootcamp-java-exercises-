@@ -203,7 +203,8 @@ public class Exercises {
 	 middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		return null;
+		int middleTwo = str.length() / 2;
+		return str.substring(middleTwo - 1, middleTwo + 1);
 	}
 
 	/*
@@ -213,8 +214,7 @@ public class Exercises {
 	 endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
-		if (str.length() - 2 == "ly")
-		return str.lenth() - 2;
+		return (str.length() >= 2 && str.substring(str.length() - 2).equals("ly"));
 	}
 
 	/*
@@ -225,17 +225,9 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		if (n == 2) {
-			return str.substring(0, 2); str.substring(str.length() - 2, str.length());
+		return str.substring(0,n) + str.substring(str.length()- n, str.length());
 		}
-		if (n == 3) {
-			return str.substring(0, 3); str.substring(str.length() - 3, str.length());
-		}
-		if (n == 1) {
-			return str.substring(0, 1); str.substring(str.length());
-		}
-		return null;
-	}
+
 
 	/*
 	 Given a string and an index, return a string length 2 starting at the given index. If the index is 
@@ -269,8 +261,13 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
-		if (str.length())
-		return false;
+		if (str.length() >= 3 && str.substring(0, 3).equals("bad")){
+			return true;
+		} else if (str.length() >= 4 && str.substring(1, 4).equals("bad")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/*
@@ -280,7 +277,11 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		String s = "";
+		for (int i = 0; i < n; i++){
+			s = s + str;
+		}
+		return s;
 	}
 
 	/*
@@ -291,7 +292,12 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+		String s = "";
+		for (int i = 0; i < n; i++) {
+			if (str.length() <= 3) s += str;
+			if (str.length() > 3) s += str.substring(0, 3);
+		}
+		return s;
 	}
 
 	/*
@@ -342,7 +348,21 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		
+		int count = 0;
+		if (str.length() <= 2) {
+			return count;
+		}
+		
+		String last2 = str.substring(str.length() - 2);
+		
+		for (int i = 0; i < str.length() - 2; i++) {
+			if (str.substring(i ,  i + 2).equals(last2)) {
+				count++;
+			}
+		}
+		
+		return count;
 	}
 
 	/*

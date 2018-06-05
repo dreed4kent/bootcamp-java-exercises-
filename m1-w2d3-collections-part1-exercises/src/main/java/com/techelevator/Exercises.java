@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 public class Exercises {
 
@@ -160,13 +161,12 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
+		
 		List<String> distinctValues = new ArrayList<String>();
 		
-		for (int i = 0; i < stringList.length; i++) {
-			ArrayList.add()
-		}
+		String collectAll = distinctValues.stream().collect(Collectors.joining(", "));
 		
-		return null;
+		return distinctValues;
 	}
 
 	/*
