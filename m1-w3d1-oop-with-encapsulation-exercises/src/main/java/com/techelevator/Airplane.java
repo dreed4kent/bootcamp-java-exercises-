@@ -59,7 +59,7 @@ public class Airplane {
 				bookedFirstClassSeats = totalNumberOfSeats + bookedFirstClassSeats;
 				result = true;
 			} else {
-				
+				result = false;
 			}
 			
 		} else {
