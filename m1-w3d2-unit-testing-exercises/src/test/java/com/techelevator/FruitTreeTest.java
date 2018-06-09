@@ -29,7 +29,7 @@ public class FruitTreeTest {
 		// Assert
 		Assert.assertEquals(20, fruitTree.getPiecesOfFruitLeft());
 	}
-	
+	 
 	public void pick_5_fruits() {
 		// Arrange
 		// Act

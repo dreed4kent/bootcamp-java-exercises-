@@ -11,7 +11,7 @@ public class Employee {
 	private double annualSalary;
 	
 	public String getFullName() {
-		return (firstName + " " + lastName);
+		return (lastName + ", " + firstName);
 	}
 
 	

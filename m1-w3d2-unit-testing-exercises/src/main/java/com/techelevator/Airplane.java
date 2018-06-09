@@ -80,7 +80,7 @@ public class Airplane {
      * @param totalNumberOfSeats Total number of seats to reserve
      * @return True if reservation was successful, false otherwise
      */
-    public boolean Reserve(boolean firstClass, int totalNumberOfSeats) {       
+    public boolean Reserve(boolean firstClass, int totalNumberOfSeats) {       //totalNumberOfSeats I'm trying to book = 101
         if (firstClass) {
             bookedFirstClassSeats += totalNumberOfSeats;
             if (totalNumberOfSeats > getAvailableFirstClassSeats()) {
