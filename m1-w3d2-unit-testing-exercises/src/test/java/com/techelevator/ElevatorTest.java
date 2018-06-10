@@ -2,6 +2,7 @@ package com.techelevator;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
 
 public class ElevatorTest {
 	
@@ -13,8 +14,15 @@ public class ElevatorTest {
 	}
 	
 	@Test
-	public void unintended_side_effects_calling_methods() {
-		
+	public void going_up_past_ceiling() {
+		Assert.assertTrue(elevator.GoUp(21));
+		Assert.assertEquals(true, elevator.getCurrentLevel());
+	}
+	
+	@Test
+	public void moving_when_doors_opened() {
+		Assert.assertTrue(elevator.isDoorOpen());
+		Assert.assertEquals(true, elevator.isMoving());
 	}
 
 }

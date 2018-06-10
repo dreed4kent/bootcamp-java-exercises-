@@ -20,10 +20,26 @@ public class TelevisionTest {
 	}
 	
 	@Test
-	public void side_effects_changing_channel() {
+	public void does_volume_correctly_reset() {
 		television.TurnOff();
 		television.TurnOn();
 		Assert.assertEquals(2, television.getCurrentVolume());
+	}
+	
+	@Test
+	public void unexpected_side_effects_changing_channel() {
+		television.IsOn();
+		television.ChangeChannel(19);
+		television.getSelectedChannel();
+		Assert.assertEquals(19, television.getSelectedChannel());
+	}
+	
+	@Test
+	public void unexpected_side_effects_turn_off_on() {
+		television.TurnOff();
+		television.TurnOn();
+		television.getCurrentVolume();
+		Assert.assertEquals(3, television.getCurrentVolume());
 	}
 
 }
