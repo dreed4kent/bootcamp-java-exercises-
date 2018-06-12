@@ -24,5 +24,11 @@ public class ElevatorTest {
 		Assert.assertTrue(elevator.isDoorOpen());
 		Assert.assertEquals(true, elevator.isMoving());
 	}
+	
+	@Test
+	public void unintended_consequences_when_calling_methods() {
+		Assert.assertFalse(elevator.isMoving());
+		Assert.assertEquals(false, elevator.isDoorOpen());
+	}
 
 }
