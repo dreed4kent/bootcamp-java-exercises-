@@ -38,24 +38,34 @@ select name, population from city WHERE population > 1000000 AND countrycode = '
 select name, region from country WHERE continent = 'North America'OR continent = 'South America'
 
 -- 12. The name, continent, and head of state of all countries whose form of government is a monarchy (43 rows)
-select name, continent, headofstate from country WHERE governmentform = 'Monarchy' -- N O T   W O R K I N G :/
+select name, continent, headofstate, governmentform from country WHERE governmentform LIKE '%Monarchy%'
 
--- 13. The name of all cities in the USA with a population between 1 million and 2 million people (6 rows) 
+-- 13. The name of all cities in the USA with a population between 1 million and 2 million people (6 rows)
+select name from city WHERE countrycode = 'USA' AND population BETWEEN 1000000 AND 2000000
 
 -- 14. The name and region of all countries in North or South America except for countries in the Caribbean (27 rows)
+select name, region AS region from country WHERE continent IN ('North America', 'South America') AND region NOT IN ('Caribbean')
 
 -- 15. The name, population, and GNP of all countries with a GNP greater than $1 trillion dollars and a population of less than 100 million people (4 rows)
+select name, population, gnp from country WHERE gnp > 1000000 AND population < 100000000
 
 -- 16. The name and population of all cities in Texas that have a population of greater than 1 million people (3 rows)
+select name, population from city WHERE district = 'Texas' AND population > 1000000
 
 -- 17. The name and average life expectancy of all countries on the continent of Oceania (28 rows)
+select name, lifeexpectancy from country WHERE continent = 'Oceania'
 
 -- 18. The name and average life expectancy of all countries on the continent of Oceania for which an average life expectancy has been provided (i.e. not equal to null) (20 rows)
+select name, lifeexpectancy from country WHERE continent = 'Oceania' AND lifeexpectancy IS NOT NULL
 
 -- 19. The name of all countries on the continent of Oceania for which an average life expectancy has not been provided (i.e. equal to null) (8 rows)
+select name from country WHERE continent = 'Oceania' AND lifeexpectancy is null
 
 -- 20. The name, continent, GNP, and average life expectancy of all countries that have an average life expectancy of at least 70 years and a GNP between $1 million and $100 million dollars (3 rows)
+select name, continent, gnp, lifeexpectancy from country WHERE lifeexpectancy >= 70 AND gnp BETWEEN 1 AND 100
 
 -- 21. The per capita GNP (i.e. GNP divided by population) in US Dollars of all countries in Europe (46 rows)
+select (gnp / population) AS per_capita_GNP from country WHERE continent = 'Europe'
 
 -- 22. The number of years since independence for all countries that have a year of independence (192 rows)
+select name, (2018 - indepyear) AS years_since_independence from country WHERE indepyear IS NOT NULL

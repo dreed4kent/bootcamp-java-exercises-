@@ -350,6 +350,10 @@ public class Exercises {
 	public int last2(String str) {
 		
 		int count = 0;
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 2e50540c635802e7c7aafa33c8d8d71a918e277c
 		if (str.length() <= 2) {
 			return count;
 		}
@@ -357,7 +361,11 @@ public class Exercises {
 		String last2 = str.substring(str.length() - 2);
 		
 		for (int i = 0; i < str.length() - 2; i++) {
+<<<<<<< HEAD
 			if (str.substring(i ,  i + 2).equals(last2)) {
+=======
+			if (str.substring(i , i + 2).equals(last2)) {
+>>>>>>> 2e50540c635802e7c7aafa33c8d8d71a918e277c
 				count++;
 			}
 		}
