@@ -1,4 +1,4 @@
-﻿-- The following queries utilize the "world" database.
+-- The following queries utilize the "world" database.
 -- Write queries for the following problems. 
 -- Notes:
 --   GNP is expressed in units of one million US Dollars
@@ -21,7 +21,7 @@ ORDER BY district, name;
 -- country code should be returned as a single column named country_and_code 
 -- and should contain values such as ‘Angola (AGO)’ 
 -- (58 rows)
-select name || (code) AS country_and_code from country                          -- N O T  (totally)  W O R K I N G :/
+select (name || ' (' || code || ')') AS country_and_code from country
 WHERE continent = 'Africa'
 
 -- 3. The per capita GNP (i.e. GNP multipled by 1000000 then divided by population) of all countries in the 
@@ -33,7 +33,7 @@ ORDER BY per_capita_gnp DESC
 
 -- 4. The average life expectancy of countries in South America.
 -- (average life expectancy in South America: 70.9461)
-select (AVG(lifeexpectancy)) from country                                       -- N O T  (totally)  W O R K I N G :/
+select ROUND(AVG(lifeexpectancy::decimal), 4) AS avg_life_expectancy_South_America from country
 WHERE continent = 'South America'
 
 -- 5. The sum of the population of all cities in California.
@@ -71,40 +71,72 @@ WHERE countrycode = 'USA'
 
 -- 12. The average population of cities in China.
 -- (average city population in China: 484720.6997 approx.)
+select ROUND(AVG(population), 4) from city
+WHERE countrycode = 'CHN'
 
 -- 13. The surface area of each continent ordered from highest to lowest.
 -- (largest continental surface area: 31881000, "Asia")
+select SUM(surfacearea), continent from country
+GROUP BY continent
 
 -- 14. The highest population density (population divided by surface area) of all 
 -- countries in the world. 
 -- (highest population density in world: 26277.7777)
+select name, ROUND((population / surfacearea)::decimal, 4) AS population_density from country
+ORDER BY population_density DESC
 
 -- 15. The population density and life expectancy of the top ten countries with the 
 -- highest life expectancies in descending order. 
 -- (highest life expectancies in world: 83.5, 166.6666, "Andorra")
+select name, ROUND((population / surfacearea)::decimal, 4) AS population_density, lifeexpectancy from country
+WHERE lifeexpectancy is not null
+ORDER BY lifeexpectancy DESC
+LIMIT 10
 
 -- 16. The difference between the previous and current GNP of all the countries in 
 -- the world ordered by the absolute value of the difference. Display both 
 -- difference and absolute difference.
 -- (smallest difference: 1.00, 1.00, "Ecuador")
+select name, (gnp - gnpold) AS new_and_old_gnp, ABS(gnp - gnpold) AS abs_gnp from country
+WHERE gnpold is not null
+ORDER BY abs_gnp ASC
 
 -- 17. The average population of cities in each country (hint: use city.countrycode)
 -- ordered from highest to lowest.
 -- (highest avg population: 4017733.0000, "SGP")
+select countrycode, ROUND(AVG(population)::decimal, 4) AS avg_population from city
+GROUP BY countrycode
+ORDER BY avg_population DESC
 	
 -- 18. The count of cities in each state in the USA, ordered by state name.
 -- (45 rows)
+select district AS state, COUNT(name) AS number_of_cities from city
+WHERE countrycode = 'USA'
+GROUP BY district
+ORDER BY district
 	
 -- 19. The count of countries on each continent, ordered from highest to lowest.
 -- (highest count: 58, "Africa")
+select continent, COUNT(name) AS number_of_countries from country
+GROUP BY continent
+ORDER BY number_of_countries DESC
 	
 -- 20. The count of cities in each country ordered from highest to lowest.
 -- (largest number of  cities ib a country: 363, "CHN")
-	
+select countrycode AS country, COUNT(name) AS number_of_cities from city
+GROUP BY countrycode
+ORDER BY number_of_cities DESC
+
 -- 21. The population of the largest city in each country ordered from highest to 
 -- lowest.
 -- (largest city population in world: 10500000, "IND")
+select countrycode, MAX(population) AS max_population from city
+GROUP BY countrycode
+ORDER BY max_population DESC
 
 -- 22. The average, minimum, and maximum non-null life expectancy of each continent 
 -- ordered from lowest to highest average life expectancy. 
 -- (lowest average life expectancy: 52.5719, 37.2, 76.8, "Africa")
+select continent, AVG(lifeexpectancy), MIN(lifeexpectancy), MAX(lifeexpectancy) from country
+WHERE lifeexpectancy is not null
+GROUP BY continent
