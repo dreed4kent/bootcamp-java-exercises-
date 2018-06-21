@@ -21,35 +21,53 @@ ORDER BY district, name;
 -- country code should be returned as a single column named country_and_code 
 -- and should contain values such as ‘Angola (AGO)’ 
 -- (58 rows)
+select name || (code) AS country_and_code from country                          -- N O T  (totally)  W O R K I N G :/
+WHERE continent = 'Africa'
 
 -- 3. The per capita GNP (i.e. GNP multipled by 1000000 then divided by population) of all countries in the 
 -- world sorted from highest to lowest. Recall: GNP is express in units of one million US Dollars 
 -- (highest per capita GNP in world: 37459.26)
-select ROUND(MAX(gnp * 1000000 / population), 2) AS per_capita_gnp FROM country WHERE population > 0 ORDER BY per_capita_gnp DESC
+select ROUND(MAX(gnp * 1000000 / population), 2) AS per_capita_gnp FROM country
+WHERE population > 0
+ORDER BY per_capita_gnp DESC
 
 -- 4. The average life expectancy of countries in South America.
 -- (average life expectancy in South America: 70.9461)
+select (AVG(lifeexpectancy)) from country                                       -- N O T  (totally)  W O R K I N G :/
+WHERE continent = 'South America'
 
 -- 5. The sum of the population of all cities in California.
 -- (total population of all cities in California: 16716706)
+select (SUM(population)) from city
+WHERE district = 'California'
 
 -- 6. The sum of the population of all cities in China.
 -- (total population of all cities in China: 175953614)
+select (SUM(population)) from city
+WHERE countrycode = 'CHN'
 
 -- 7. The maximum population of all countries in the world.
 -- (largest country population in world: 1277558000)
+select MAX(population) from country
 
 -- 8. The maximum population of all cities in the world.
 -- (largest city population in world: 10500000)
+select MAX(population) from city
 
 -- 9. The maximum population of all cities in Australia.
 -- (largest city population in Australia: 3276207)
+select MAX(population) from city
+WHERE countrycode = 'AUS'
 
 -- 10. The minimum population of all countries in the world.
 -- (smallest_country_population in world: 50)
+select MIN(population) AS smallest_country_population from country
+WHERE population > 0
 
 -- 11. The average population of cities in the United States.
 -- (avgerage city population in USA: 286955.3795)
+select ROUND(AVG(population), 4) from city
+WHERE countrycode = 'USA'
 
 -- 12. The average population of cities in China.
 -- (average city population in China: 484720.6997 approx.)
