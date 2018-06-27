@@ -61,13 +61,13 @@ public class Exercises {
 		for (int i = 0; i < stringArray.length; i++) {
 			
 			if (stringArray.length == 4) {
-				return null;
+//				return stringList1;
 			}
 			
 			stringList1.add(stringArray[i]);
 		}
 		
-//		System.out.println(stringList);
+		System.out.println(stringList1);
 		return stringList1;
 	}
 
