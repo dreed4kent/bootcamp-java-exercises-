@@ -34,16 +34,28 @@ public class JDBCDepartmentDAO implements DepartmentDAO {
 
 	@Override
 	public List<Department> searchDepartmentsByName(String nameSearch) {
-		return new ArrayList<>();
+		List<Department> deptList = new ArrayList<Department>();
+		String sqlByName = "SELECT department_id, name FROM department WHERE name = ?";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlByName, nameSearch);	// only when using SELECT statement
+	
+		while(result.next()) {
+			Department d = mapRowToDepartment(result);
+			deptList.add(d);
+		}
+		return deptList;
 	}
 
 	@Override
 	public void saveDepartment(Department updatedDepartment) {
+		//INSERT INTO department (name) VALUES (?) 
+		String sqlCreateDept = "INSERT INTO department (name) VALUES (?)";
+		jdbcTemplate.update(sqlCreateDept, updatedDepartment.getName());
 		
 	}
 
 	@Override
 	public Department createDepartment(Department newDepartment) {
+		
 		return null;
 	}
 
