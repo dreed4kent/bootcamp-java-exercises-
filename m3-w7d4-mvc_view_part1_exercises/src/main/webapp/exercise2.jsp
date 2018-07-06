@@ -20,7 +20,13 @@
 			 --%>
 			 
 			 <c:forEach begin="1" end="25" var="fibonacci">
-			 
+			 	<c:choose>
+			 		<c:when>
+				 		<li class= "fibonacci">
+				 			${number}
+				 		</li>
+			 		</c:when>
+			 	</c:choose>
 			 </c:forEach>
 			 
 		</ul>
