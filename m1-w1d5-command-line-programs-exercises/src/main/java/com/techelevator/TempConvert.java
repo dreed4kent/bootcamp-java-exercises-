@@ -38,7 +38,7 @@ public class TempConvert {
 		
 		System.out.println("Please enter (C)elcius, or (F)ahrenheit: ");
 		
-		String choice = in.nextLine();
+		String choice = in.nextLine().toUpperCase();
 		
 		//System.out.println(choice);
 		

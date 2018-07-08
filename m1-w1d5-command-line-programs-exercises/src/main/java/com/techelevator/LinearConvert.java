@@ -31,22 +31,18 @@ public class LinearConvert {
 		double mToFeet = (amount * 0.3048);
 		double fToMetr = (amount * 3.2808399);
 		
-//		System.out.println(input);
-		
 		System.out.println("Please enter (F)eet or (M)eters: ");
 		
-		String choice = in.nextLine();
-		
-//		System.out.println(choice);
+		String choice = in.nextLine().toUpperCase();
 		
 		System.out.println("You've entered " + input + choice + "!");
 		
 		switch(choice) {
 			case "F":
-				System.out.println("The length in Meters is " + fToMetr);
+				System.out.println(input + " feet" + " is " + mToFeet + " meters");
 				break;
 			case "M":
-				System.out.println("The length in Feet is " + mToFeet);
+				System.out.println(input + " meters" + "is " + fToMetr + " feet");
 				break;
 		}
 	}
