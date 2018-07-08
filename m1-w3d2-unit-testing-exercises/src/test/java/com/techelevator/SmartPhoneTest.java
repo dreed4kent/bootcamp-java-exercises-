@@ -15,6 +15,7 @@ public class SmartPhoneTest {
 	
 	@Test
 	public void does_battery_recharge_to_100() {
+		smartPhone.RechargeBattery();
 		Assert.assertEquals(95, smartPhone.getBatteryCharge());
 	}
 	

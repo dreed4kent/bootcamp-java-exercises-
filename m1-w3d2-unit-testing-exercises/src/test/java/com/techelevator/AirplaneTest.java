@@ -22,8 +22,8 @@ public class AirplaneTest {
 	
 	@Test
 	public void are_available_seats_accurate() {
-		boolean success = airplane.Reserve(true, 10);
-		Assert.assertTrue(success);
+//		boolean success = airplane.Reserve(true, 10);
+//		Assert.assertTrue(success);
 		Assert.assertTrue(airplane.Reserve(true, 10));	//this line replaced the top 2 above it
 		Assert.assertTrue(airplane.Reserve(false, 10));
 		Assert.assertEquals(190, airplane.getAvailableCoachSeats());
