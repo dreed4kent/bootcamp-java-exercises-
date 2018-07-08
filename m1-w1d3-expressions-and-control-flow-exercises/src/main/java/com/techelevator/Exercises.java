@@ -168,13 +168,15 @@ public class Exercises {
 	 loneTeen(21, 19) → true
 	 loneTeen(13, 13) → false
 	 */
+	
 	public boolean loneTeen(int a, int b) {
-		if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19)) {
-			return true;
-		} else {
-			return false;
+		  boolean a1 = (a>=13 && a<=19);
+		  boolean b1 = (b>=13 && b<=19);
+		  if(a1 && !b1 || !a1 && b1) 
+		   return true;
+		  else
+		   return false;
 		}
-	}
 
 	/*
 	 13. Given three int values, a b c, return the largest.
@@ -183,15 +185,10 @@ public class Exercises {
 	 intMax(3, 2, 1) → 3
 	 */
 	public int intMax(int a, int b, int c) {
-		if ((a > b) || (a > c)) {
-		return a;
-		}
-		else if ((b > a) || (b > c)) {
-		return b;
-		}
-		else {
-		return c;
-		}
+		int max = a;
+		if (b > max) max = b;
+		if (c > max) max = c;
+		return max;
 	}
 	
 	/*
@@ -219,11 +216,16 @@ public class Exercises {
 	 max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
-		if (((a >= 10 && a <= 20) || (b >= 10 && b <= 20)) && a >= b) {
+		if (((a >= 10) & (a <= 20)) & !((b >= 10) & (b <= 20))) {
 			return a;
-		}
-		else if (((a >= 10 && a <= 20) || (b >= 10 && b <= 20)) && b >= a) {
+		} else if (!((a >= 10) & (a <= 20)) & ((b >= 10) & (b <= 20))) {
 			return b;
+		} else if (((a >= 10) & (a <= 20)) & ((b >= 10) & (b <= 20))) {
+			if (a > b) {
+			return a;
+		} else {
+			return b;
+		}
 		} else {
 			return 0;
 		}
@@ -561,17 +563,14 @@ public class Exercises {
 	 */
 	public int luckySum(int a, int b, int c) {
 		if (a == 13) {
-			return c;
-		} else if (b == 13) {
-			return a;
-		} else if (c == 13) {
-			return a + b;
-		} else if ((a == 13) && (b == 13)) {
 			return 0;
+		} else if(b == 13) {
+			return a;
+		} else if(c == 13) {
+			return a + b;
 		} else {
 			return a + b + c;
 		}
-		
-	}
+		}
 
 }
