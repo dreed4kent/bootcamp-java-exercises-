@@ -4,12 +4,11 @@
 
 <%@include file="common/header.jspf"%>
 
-<c:url= var= "searchPage" value= "/searchCustomer"/>
+<c:url var="requestCust" value="/requestCustomer"/>
 
-<form action= "${searchPage}" method= "Get">
-	<input type= "text" name= "lastName"/>
-	<input type= "text" name= "email"/>
-	<select>
+<form action= "${requestCust}" method= "Get">
+	<input type= "text" name= "name"/>
+	<select name= "dropDown" id= "dropDownBox">
 	  <option value="last_name">Last Name</option>
 	  <option value="email">Email</option>
 	  <option value="active">Active</option>

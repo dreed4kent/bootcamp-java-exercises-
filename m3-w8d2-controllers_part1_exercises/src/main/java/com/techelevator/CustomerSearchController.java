@@ -21,14 +21,20 @@ public class CustomerSearchController {
     @Autowired
     private CustomerDao customerDao;
     
-    @RequestMapping("/search")
+    @RequestMapping("/searchCustomer")
     public String showSearchCustomerForum() {
     	return "customerList";
     }
+    
     @RequestMapping("/requestCustomer")
     public String searchCustomers(HttpServletRequest request) {
-    	String customerLastName= request.getParameter("lastName");
-    	List<Customer> customerList= customerDao.searchAndSortCustomers(customerLastName, );
+    	String customerName= request.getParameter("name");
+    	System.out.println(customerName);
+    	String orderBy = request.getParameter("dropDown");
+    	System.out.println(orderBy);
+   	List<Customer> customerList= customerDao.searchAndSortCustomers(customerName, orderBy);
+   	request.setAttribute("customer", customerList);
+    	return "customerList";
     }
 
 }
