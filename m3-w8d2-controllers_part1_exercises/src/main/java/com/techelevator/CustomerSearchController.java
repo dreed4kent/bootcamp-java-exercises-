@@ -29,9 +29,9 @@ public class CustomerSearchController {
     @RequestMapping("/requestCustomer")
     public String searchCustomers(HttpServletRequest request) {
     	String customerName= request.getParameter("name");
-    	System.out.println(customerName);
+    		System.out.println(customerName);
     	String orderBy = request.getParameter("dropDown");
-    	System.out.println(orderBy);
+    		System.out.println(orderBy);
    	List<Customer> customerList= customerDao.searchAndSortCustomers(customerName, orderBy);
    	request.setAttribute("customer", customerList);
     	return "customerList";
