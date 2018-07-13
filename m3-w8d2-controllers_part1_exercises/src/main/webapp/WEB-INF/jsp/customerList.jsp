@@ -23,7 +23,7 @@
 <th>Active</th>
 </tr>
 
-<c:forEach items="${actors}" var="customer">
+<c:forEach items="${customer}" var="customer">
 	<tr>
 		<td>
 	    ${customer.firstName} ${customer.lastName}

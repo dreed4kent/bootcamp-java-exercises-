@@ -21,7 +21,7 @@ public class CustomerSearchController {
     @Autowired
     private CustomerDao customerDao;
     
-    @RequestMapping("/searchCustomer")
+    @RequestMapping("/searchCustomer")	//the url when searching
     public String showSearchCustomerForum() {
     	return "customerList";
     }
