@@ -23,18 +23,18 @@ public class CustomerSearchController {
     
     @RequestMapping("/searchCustomer")	//the url when searching
     public String showSearchCustomerForum() {
-    	return "customerList";
+    	return "customerList";			//the .jsp I'm using
     }
     
     @RequestMapping("/requestCustomer")
-    public String searchCustomers(HttpServletRequest request) {
+    public String searchCustomers(HttpServletRequest request) {		//sending through Request Object method (where its all orginzed)
     	String customerName= request.getParameter("name");
     		System.out.println(customerName);
-    	String orderBy = request.getParameter("dropDown");
+    	String orderBy = request.getParameter("dropDown");			//my dropdown menu, better name?
     		System.out.println(orderBy);
    	List<Customer> customerList= customerDao.searchAndSortCustomers(customerName, orderBy);
    	request.setAttribute("customer", customerList);
-    	return "customerList";
+    	return "customerList";			//either a .jsp OR redirect: Request Mapping (inside parenthasis)
     }
 
 }

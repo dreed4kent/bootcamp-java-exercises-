@@ -4,7 +4,7 @@
 
 <%@include file="common/header.jspf"%>
 
-<c:url var="requestCust" value="/requestCustomer"/>
+<c:url var="requestCust" value="/requestCustomer"/>		<!-- using it mostly from jsp -->
 
 <form action= "${requestCust}" method= "Get">
 	<input type= "text" name= "name"/>
