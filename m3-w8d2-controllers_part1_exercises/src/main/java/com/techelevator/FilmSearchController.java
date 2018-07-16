@@ -33,7 +33,7 @@ public class FilmSearchController {
     		int foo = Integer.parseInt("maxFilmLength");
     	String minFilmLength= request.getParameter("minLength");
     		int foo2 = Integer.parseInt("minFilmLength");
-    List<Film> filmList= filmDao.getFilmsBetween(orderBy, maxFilmLength, minFilmLength);
+    List<Film> filmList= filmDao.getFilmsBetween(orderBy, foo, foo2);
     request.setAttribute("film", filmList);
         	return "filmList";
         }
