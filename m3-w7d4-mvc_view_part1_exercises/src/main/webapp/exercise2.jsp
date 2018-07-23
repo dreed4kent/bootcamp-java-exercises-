@@ -19,16 +19,10 @@
 				See exercise2-fibonacci.png for example output
 			 --%>
 			 
-			 <c:forEach begin="1" end="25" var="fibonacci">
-			 	<c:choose>
-			 		<c:when>
-				 		<li class= "fibonacci">
-				 			${number}
-				 		</li>
-			 		</c:when>
-			 	</c:choose>
-			 </c:forEach>
-			 
+			 <c:set var="x" value="0" />
+			 <c:set var="y" value="1" />
+			 <c:set var="z" value="0" />
+			 <li><c:out value="${x}"></c:out></li>
 		</ul>
 	</body>
 </html>
