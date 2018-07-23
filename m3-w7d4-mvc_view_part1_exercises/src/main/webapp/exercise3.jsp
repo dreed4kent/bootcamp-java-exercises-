@@ -24,6 +24,12 @@
 			 
 			See exercise3-echo.png for example output
 		 --%>
+		 
+		 <c:set var="word">word</c:set>
+			<c:forEach begin="0" end="${param.count}" step="1" var="i">
+				<li><span style="font-size: ${param.count - i}px"><c:out value="${param.word}"></c:out></span></li>
+			</c:forEach>
+		 
 		</ul>
 		
 	</body>

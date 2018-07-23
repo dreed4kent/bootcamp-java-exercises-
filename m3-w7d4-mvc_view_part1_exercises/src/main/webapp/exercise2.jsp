@@ -23,6 +23,13 @@
 			 <c:set var="y" value="1" />
 			 <c:set var="z" value="0" />
 			 <li><c:out value="${x}"></c:out></li>
+			 <c:forEach begin="1" end="13" step="1">
+			 	<li><c:out value="${y}"></c:out></li>
+			 	<c:set var="z" value="${x + y}" />
+				<c:set var="x" value="${z}" />
+				<c:set var="y" value="${x + y}" />
+				<li><c:out value="${z}"></c:out></li>
+			 </c:forEach>
 		</ul>
 	</body>
 </html>
