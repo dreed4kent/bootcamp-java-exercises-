@@ -23,7 +23,7 @@ function hasTeen(x, y, z) {
 }
 
 /*
-3. LastDigit          -- N o t   W o r k i n g! =(
+3. LastDigit          -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
 */
 
 function LastDigit(x, y) {
@@ -49,21 +49,19 @@ function seeColor(colorString) {
 }
 
 /*
-5. MiddleThree        -- N o t   W o r k i n g! =(
+5. MiddleThree
 */
 
-function middleThree(wordString) {
-    if (wordString.length % 0) {
-
-    }
+function middleThree(str) {
+    return str.substring(str.length / 2-1, str.length / 2+2);
 }
 
 /*
-6. FrontAgain         -- N o t   W o r k i n g! =(
+6. FrontAgain
 */
 
-function frontAgain(frontString) {
-    if (frontSting.substring(0, 2) == frontString.substring(frontString.length - 2)) {
+function frontAgain(str) {
+    if (str.substring(0, 2) == str.substring(str.length - 2)) {
         return true;
     } else {
         return false;
@@ -71,7 +69,7 @@ function frontAgain(frontString) {
 }
 
 /*
-7. AlarmClock         -- N o t   W o r k i n g! =(
+7. AlarmClock         -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
 */
 
 function alarmClock(day, vacation) {
@@ -121,7 +119,7 @@ function oddOnly(intArray) {
 //   function weave()
 
 /*
-11. CigarParty        -- N o t   W o r k i n g! =(
+11. CigarParty        -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
 */
 
   function cigarParty () {
@@ -138,7 +136,7 @@ function oddOnly(intArray) {
     }
 
 /*
-12. StringSplosion    -- N o t   W o r k i n g! =(
+12. StringSplosion    -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
 */
 
 function stringSplosion(src) {
@@ -169,4 +167,8 @@ function fizzBuzz(num) {
 
 /*
 14. CountValues
+*/
+
+/*
+15. ReverseArray
 */
