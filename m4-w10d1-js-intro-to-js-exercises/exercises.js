@@ -23,10 +23,10 @@ function hasTeen(x, y, z) {
 }
 
 /*
-3. LastDigit          -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
+3. LastDigit
 */
 
-function LastDigit(x, y) {
+function lastDigit(x, y) {
     if (x%10 == y%10) {
         return true;
     } else {
@@ -53,7 +53,7 @@ function seeColor(colorString) {
 */
 
 function middleThree(str) {
-    return str.substring(str.length / 2-1, str.length / 2+2);
+    return str.substring(str.length / 2 - 1, str.length / 2 + 2);
 }
 
 /*
@@ -69,19 +69,24 @@ function frontAgain(str) {
 }
 
 /*
-7. AlarmClock         -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
+7. AlarmClock
 */
 
 function alarmClock(day, vacation) {
-    if (day > 0 && day < 6 && !vacation) {
-        return "7:00"
-    } else if ((day > 0 && day < 6 && vacation) || (day == 6 ^ day == 0 && !vacation)){
-        return "10:00";
-    } else if (day == 6 || day == 0 && vacation) {
-        return "off";
+    var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    if (vacation) {
+        if (day > 0 && day < 6){
+            return arr[day] + " 10:00";
+        } else {
+            return arr[day] + " off";
+        }
     } else {
-		return "off";
-	}
+        if (day > 0 && day < 6) {
+            return arr[day] + " 7:00";
+        } else {
+            return arr[day] + " 10:00";
+        }
+    }
 }
 
 /*
@@ -110,19 +115,21 @@ function oddOnly(intArray) {
         }
     }
     return results;
-  }
+}
 
 /*
 10. Weave
 */
 
-//   function weave()
+// function weave() {
+//     var Array1
+// }
 
 /*
-11. CigarParty        -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
+11. CigarParty
 */
 
-  function cigarParty () {
+  function cigarParty (cigars, weekend) {
     if (weekend) {
         if (cigars > 39) {
           return true;
@@ -133,17 +140,18 @@ function oddOnly(intArray) {
         }
         }
     return false;
-    }
+}
 
 /*
-12. StringSplosion    -- N   o   t         W   o   r   k   i   n   g ! ! !       =(
+12. StringSplosion
 */
 
-function stringSplosion(src) {
+function stringSplosion(code) {
 var result = "";
-for(var i = 0; i < src.length; i++) {
-    result += src.substring(i, 0);
+for(var i = 0; i <= code.length; i++) {
+    result += code.substring(i, 0);
     }
+    return result;
 }
 
 /*
@@ -151,19 +159,16 @@ for(var i = 0; i < src.length; i++) {
 */
 
 function fizzBuzz(num) {
-    if(num % 5 == 0 && num % 3 == 0) {
+    if(num % 15 == 0) {
         return "FizzBuzz";
-    }
-        else if (num%5==0) {
+    } else if (num%5==0) {
           return "Buzz";
-        }
-        else if (num%3==0) {
+    } else if (num%3==0) {
           return "Fizz";
-        }
-        else {
+    } else {
           return num;
-        }
-      }
+    }
+}
 
 /*
 14. CountValues
