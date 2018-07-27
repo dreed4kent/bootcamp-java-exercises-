@@ -75,7 +75,7 @@ function frontAgain(str) {
 function alarmClock(day, vacation) {
     var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     if (vacation) {
-        if (day > 0 && day < 6){
+        if (day > 0 && day < 6) {
             return arr[day] + " 10:00";
         } else {
             return arr[day] + " off";
