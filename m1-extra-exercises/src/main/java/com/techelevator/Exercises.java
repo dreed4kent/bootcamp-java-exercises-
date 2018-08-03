@@ -12,6 +12,12 @@ public class Exercises {
     arrayDeduplication([1, 1, 1]) → [1]
     */
     public int[] arrayDeduplication(int[] nums) {
+    	int[] brand = new int[nums.length];
+    	brand[0] = nums[0];
+    	int m = 1;
+    	for (int i = 0; i < nums.length; i++) {
+    		if (nums[i] != nums[i.l])
+    	}
         return null;
     }
     
@@ -44,7 +50,9 @@ public class Exercises {
     blackjack(19, 22) → 19
     */
     public int blackjack(int a, int b) {
-        return 0;
+    	if (a > 21 && b > 21) return 0;
+    	else if (a <= 21 && a > b || b > 21) return a;
+        return b;
     }
     
     /*

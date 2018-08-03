@@ -1,42 +1,58 @@
 package com.techelevator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class KataRomanNumerals {
-
+	String[] romanArray = {"M", "CM", "D", "C", "L", "X", "IX", "V", "IV", "I"};
+	int[] numbersArray = {1000, 900, 500, 100, 50, 10, 9, 5, 4, 1};
 	
-	//private Integer [] numsArray = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-	private Integer [] numsArray = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-	//private String [] stringArray = {"I","IV","V","IX","X","IL","L", "IC","C", "ID","D", "IM","M"};
-	private String [] stringArray = {"M","CM","D","CD","C","IC","L", "IL","X", "IX","V","IV","I"};
-	
-	public String convert(int number){
-//		Map <Integer,String> nums = new HashMap<Integer,String>();
-//		List <String> results = new ArrayList<String>();
-				
-//		while(number % 1000 == 0){
-//			results.add("M");
-//			number /= 1000;
-//		} return results;
-//	}}
+	public String numeralToRoman(int number) {
+		int n = number;
+		String roman = "";
 		
-		String result = new String();
-		for(int i = 0; i<numsArray.length; i++){
-			while(number>=numsArray[i]){
-				result+= stringArray[i];
-				number-=numsArray[i];
+		for(int i = 0; i < numbersArray.length; i++) {
+			while(n >= numbersArray[i]) {
+				roman += romanArray[i];
+				n -= numbersArray[i];
 			}
-		}return result;
+		}
+		return roman;
 	}
-}
-
 	
-//		if (nums.containsKey(number)){
-//			 result = nums.get(number);
-//		}else {
-//			result = "else";
-//		}return result;
-//	}
+	public int romanToNumeral(String roman) {
+		int numeral = 0;
+		while(!roman.isEmpty()){
+			if(roman.length() == 1) {
+				for(int i = 0; i < romanArray.length; i++) {
+					if(roman.equals(romanArray[i])) {
+						numeral += numbersArray[i];
+						roman = "";
+						break;
+					}
+				}
+				
+			}
+			if(roman.length() >= 2) {
+				for(int i = 0; i < romanArray.length; i++) {
+					if(roman.substring(0,2).equals(romanArray[i])){
+						numeral += numbersArray[i];
+						roman = roman.substring(2);
+						break;
+					}
+				}
+			}
+			
+			if(roman.length() >= 1) {
+				for(int i = 0; i < romanArray.length; i++) {
+					if(roman.substring(0,1).equals(romanArray[i])) {
+						numeral += numbersArray[i];
+						roman = roman.substring(1);
+						break;
+					}
+				}
+			}
+			
+		}
+		
+		return numeral;
+	}
+	
+}
