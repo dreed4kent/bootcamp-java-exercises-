@@ -36,26 +36,37 @@ $(document).ready(function () {
 		 debug: true,
 		 rules: {
 			 BillingAddress1: {
-				 required true,
+				 required: true,
 			 },
 			 ShippingAddress1: {
-				 required true,
+				 required: true,
+			 },
+			 BillingAddress2: {
+				 required: true,
+			 },
+			 ShippingAddress2: {
+				 required: true,
 			 },
 			 BillingCity: {
-				 required true,
+				 required: true,
 			 },
 			 ShippingCity: {
-				 required true,
+				 required: true,
 			 },
 			 BillingState: {
-				 required true,
+				 required: true,
 				 minlength: 2,
 			 },
 			 ShippingState: {
-				 required true,
+				 required: true,
 				 minlength: 2,
 			 },
 			 BillingPostalCode: {
+				 required: true,
+				 actualZipCode: true,
+				 maxlength: 5,
+			 },
+			 ShippingPostalCode: {
 				 required: true,
 				 actualZipCode: true,
 				 maxlength: 5,
@@ -69,7 +80,7 @@ $(document).ready(function () {
 			 },
 			 ExpirationDate: {
 				 required: true,
-				 maxLength: 4,
+				 maxlength: 4,
 			 }
 		 }
 	 });
@@ -78,3 +89,4 @@ $(document).ready(function () {
 $.validator.addMethod("strongpassword", function (value, index) {
     return value.match(/[A-Z]/) && value.match(/[a-z]/) && value.match(/\d/);  //check for one capital letter, one lower case letter, one num
 }, "Please enter a strong password (one capital, one lower case, and one number");
+
